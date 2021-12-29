@@ -1,0 +1,87 @@
+#include <iostream>
+#include <sstream>
+#include <fstream>
+
+using namespace std;
+ofstream f("C:\\Users\\Дэнчик\\Desktop\\dz\\rez\\5.txt");
+
+void Razm(string strok, int ur, int n, int k,int kk,int m)
+{
+int p = 0, t = 0, y = 0, o = 0, u = 0, yy = 0 ,x=0,z=0,rt=0,pp=0,trt=-1;
+if (ur > k)
+{
+
+for (int i = 0; i < k; i++)
+{
+if (strok[i] == '0')
+p++;
+if (strok[i] == '1')
+t++;;
+if (strok[i] == '2')
+y++;
+if (strok[i] == '3')
+o++;
+if (strok[i] == '4')
+u++;
+if (strok[i] == '5')
+yy++;
+if (strok[i] == '6')
+x++;
+if (strok[i] == '7')
+z++;
+if (strok[i] == '8')
+rt++;
+if (strok[i] == '9')
+pp++;
+}
+if (strok[k-2] == '0' || strok[k-2] == '4' || strok[k-2] == '8' || strok[k - 1] == '0' || strok[k - 1] == '4' || strok[k - 1] == '8')
+trt = 1;
+if(trt==-1&&yy==kk&&y==m)
+{
+for (int i = 0; i < k; i++)
+{
+if (strok[i] == '0')
+strok[i] = 'a';
+if (strok[i] == '1')
+strok[i] = 'b';
+if (strok[i] == '2')
+strok[i] = 'c';
+if (strok[i] == '3')
+strok[i] = 'd';
+if (strok[i] == '4')
+strok[i] = 'e';
+if (strok[i] == '5')
+strok[i] = 'f';
+if (strok[i] == '6')
+strok[i] = 'g';
+if (strok[i] == '7')
+strok[i] = 'h';
+if (strok[i] == '8')
+strok[i] = 'j';
+if (strok[i] == '9')
+strok[i] = 'k';
+}
+f « strok « endl;
+}
+}
+else
+for (int i = 0; i < n; i++)
+{
+ostringstream os;
+os « i ;
+
+Razm(strok + os.str(), ur + 1, n, k,kk,m);
+}
+}
+int main()
+{
+
+int n;
+int m,k;
+setlocale(LC_ALL, "Russian_Russia.1251");
+cout « "Введите n и k и m: " « endl;
+cin » n »k» m;
+Razm("", 1, 10, n,k,m);
+
+return 0;
+}
